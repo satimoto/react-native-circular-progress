@@ -41,7 +41,8 @@ export default class CircularProgress extends React.PureComponent {
       padding,
       renderCap,
       dashedBackground,
-      dashedTint
+      dashedTint,
+      onPress
     } = this.props;
 
     const maxWidthCircle = backgroundWidth ? Math.max(width, backgroundWidth) : width;
@@ -100,7 +101,7 @@ export default class CircularProgress extends React.PureComponent {
 
     return (
       <View style={style}>
-        <Svg width={size + padding} height={size + padding}>
+        <Svg width={size + padding} height={size + padding} onPress={onPress}>
           <G rotation={rotation} originX={(size + padding) / 2} originY={(size + padding) / 2}>
             {backgroundColor && (
               <Path
@@ -151,7 +152,8 @@ CircularProgress.propTypes = {
   padding: PropTypes.number,
   renderCap: PropTypes.func,
   dashedBackground: PropTypes.object,
-  dashedTint: PropTypes.object
+  dashedTint: PropTypes.object,
+  onPress: PropTypes.func
 };
 
 CircularProgress.defaultProps = {
@@ -163,4 +165,5 @@ CircularProgress.defaultProps = {
   padding: 0,
   dashedBackground: { width: 0, gap: 0 },
   dashedTint: { width: 0, gap: 0 },
+  onPress: () => {}
 };

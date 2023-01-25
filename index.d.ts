@@ -3,6 +3,7 @@ declare module 'react-native-circular-progress' {
   import {
     Animated,
     EasingFunction,
+    GestureResponderEvent,
     StyleProp,
     ViewStyle
   } from 'react-native';
@@ -191,6 +192,16 @@ declare module 'react-native-circular-progress' {
      * @default '{ width: 0, gap: 0 }'
      */
     dashedBackground?: { width: number; gap: number };
+
+    /**
+     * Pass a function to receive an onPress event
+     *
+     * @type {Function}
+     * @param {GestureResponderEvent} event
+     * @return void
+     */
+    onPress?: (event: GestureResponderEvent) => void;
+
   }
 
   export class AnimatedCircularProgress extends React.Component<
